@@ -487,7 +487,7 @@ func (p *PublicKey) SerializeHybrid() []byte {
 // PubkeyToAddress 公钥转地址方法
 func (p *PublicKey) PubkeyToAddress() Address {
 	pubBytes := FromECDSAPub(p)
-	i := sha3.Keccak256(pubBytes[:])[12:]
+	i := sha3.Keccak256(pubBytes[1:])[12:]
 	return BytesToAddress(i)
 }
 
